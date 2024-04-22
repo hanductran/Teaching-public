@@ -2,9 +2,8 @@
 An example to use disjoint sets data structure to generate 4-by-4 maze
 */
 #include <iostream>
-#include <vector>
 
-std::vector<int> parent = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+int parent[] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
 int faces[36][2] = {
    {-1,1},
    {-1,2},
@@ -96,10 +95,14 @@ void unionByRank(int x_1, int x_2) {
 }
 
 int main() {
-   const int nCells = parent.size();
-   const std::vector<unsigned int> randomFaces = {13,27,21,4,9,30,7,23,8,5,22,18,32,17,3,25,14};
+   // For now, we choose a fixed sequence of faces to be considered of taking down
+   // But you can randomly generate a face ID that is in [0, 36]
+   const int randomFaces[] = {13,27,21,4,9,30,7,23,8,5,22,18,32,17,3,25,14};
 
-   for (int i = 0; i < randomFaces.size(); i++) {
+   const int nCells = sizeof(parent)/sizeof(parent[0]);
+   const int nFaces = sizeof(randomFaces)/sizeof(randomFaces[0]);
+
+   for (int i = 0; i < nFaces; i++) {
       int faceId = randomFaces[i];
       int cell_1 = faces[faceId][0];
       int cell_2 = faces[faceId][1];
@@ -112,7 +115,7 @@ int main() {
    }
 
    std::cout << "parent = [ ";
-   for (int i = 0; i < parent.size(); i++) {
+   for (int i = 0; i < nCells; i++) {
       std::cout << parent[i] << ", ";
    }
    std::cout << "]\n";
