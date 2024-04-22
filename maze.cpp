@@ -90,14 +90,9 @@ void unionByRank(int x_1, int x_2) {
       std::cout << "unionByRank:: x_1 and x_2 are in the same set! \n";
       return;
    }
-   if (parent[root_2] < parent[root_1]) {// tree_2 is deeper
-      parent[root_1] = root_2; // merge tree_1 to tree_2
-   } else {
-      if (parent[root_2] == parent[root_1]) { // two trees are equal rank
-         parent[root_1] -= 1; // increase rank of tree_1
-      }
-      parent[root_2] = root_1; // merge tree_2 to tree_1
-   }
+   /*
+   WRITE YOUR CODE HERE
+   */
 }
 
 int main() {
