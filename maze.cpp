@@ -44,9 +44,10 @@ int faces[36][2] = {
 };
 
 int find_noRecursive(int x) {
-   /*
-   WRITE YOUR CODE HERE
-   */
+   while (parent[x] >= 0) {
+      x = parent[x];
+   }
+   return x;
 }
 
 int find(int x) {
