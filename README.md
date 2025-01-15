@@ -1,2 +1,2 @@
-# DisjointSets
-Example to use disjoint sets data structure to generate a maze
+# Teaching-public
+This repo for public posts of Han Tran's classes at Texas A&M University
